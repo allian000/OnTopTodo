@@ -15,11 +15,11 @@ On Top Todo is a todo list that is always on top of your screen, based on the Wi
 
 ## Features
 
-- [ ] Add new todos
-- [ ] Read and display todos
-- [ ] Update existing todos
-- [ ] Delete todos
-- [ ] Check the todos
+- [x] Add new todos
+- [x] Read and display todos
+- [x] Update existing todos
+- [x] Delete todos
+- [x] Check the todos
 - [ ] Search todos
 - [ ] Export to Excel file
 

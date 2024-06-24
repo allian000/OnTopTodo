@@ -1,6 +1,6 @@
 ﻿namespace OnTopTodo
 {
-    partial class TodoInput
+    partial class RenameTodoForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            todoInputBox = new TextBox();
+            renameTodoBox = new TextBox();
             submitInputBtn = new Button();
             SuspendLayout();
             // 
-            // todoInputBox
+            // renameTodoBox
             // 
-            todoInputBox.Location = new Point(12, 12);
-            todoInputBox.Name = "todoInputBox";
-            todoInputBox.Size = new Size(311, 23);
-            todoInputBox.TabIndex = 0;
+            renameTodoBox.Location = new Point(12, 12);
+            renameTodoBox.Name = "renameTodoBox";
+            renameTodoBox.Size = new Size(311, 23);
+            renameTodoBox.TabIndex = 0;
             // 
             // submitInputBtn
             // 
-            submitInputBtn.Location = new Point(113, 55);
+            submitInputBtn.Location = new Point(112, 55);
             submitInputBtn.Name = "submitInputBtn";
             submitInputBtn.Size = new Size(95, 32);
             submitInputBtn.TabIndex = 1;
@@ -49,23 +49,22 @@
             submitInputBtn.UseVisualStyleBackColor = true;
             submitInputBtn.Click += submitInputBtn_Click;
             // 
-            // TodoInput
+            // RenameTodoForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(331, 99);
             Controls.Add(submitInputBtn);
-            Controls.Add(todoInputBox);
-            Name = "TodoInput";
-            Text = "請輸入代辦事項名稱...";
-            TopMost = true;
+            Controls.Add(renameTodoBox);
+            Name = "RenameTodoForm";
+            Text = "重新命名代辦事項...";
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private TextBox todoInputBox;
+        private TextBox renameTodoBox;
         private Button submitInputBtn;
     }
 }

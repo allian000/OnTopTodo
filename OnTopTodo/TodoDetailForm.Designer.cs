@@ -1,6 +1,6 @@
 ﻿namespace OnTopTodo
 {
-    partial class TodoInput
+    partial class TodoDetailForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,36 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            todoInputBox = new TextBox();
-            submitInputBtn = new Button();
+            exitBtn = new Button();
+            todoContentBox = new TextBox();
             SuspendLayout();
             // 
-            // todoInputBox
+            // exitBtn
             // 
-            todoInputBox.Location = new Point(12, 12);
-            todoInputBox.Name = "todoInputBox";
-            todoInputBox.Size = new Size(311, 23);
-            todoInputBox.TabIndex = 0;
+            exitBtn.Location = new Point(152, 242);
+            exitBtn.Name = "exitBtn";
+            exitBtn.Size = new Size(123, 40);
+            exitBtn.TabIndex = 0;
+            exitBtn.Text = "存檔離開";
+            exitBtn.UseVisualStyleBackColor = true;
+            exitBtn.Click += exitBtn_Click;
             // 
-            // submitInputBtn
+            // todoContentBox
             // 
-            submitInputBtn.Location = new Point(113, 55);
-            submitInputBtn.Name = "submitInputBtn";
-            submitInputBtn.Size = new Size(95, 32);
-            submitInputBtn.TabIndex = 1;
-            submitInputBtn.Text = "確認";
-            submitInputBtn.UseVisualStyleBackColor = true;
-            submitInputBtn.Click += submitInputBtn_Click;
+            todoContentBox.Location = new Point(12, 12);
+            todoContentBox.Multiline = true;
+            todoContentBox.Name = "todoContentBox";
+            todoContentBox.Size = new Size(401, 224);
+            todoContentBox.TabIndex = 1;
             // 
-            // TodoInput
+            // TodoDetailForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(331, 99);
-            Controls.Add(submitInputBtn);
-            Controls.Add(todoInputBox);
-            Name = "TodoInput";
-            Text = "請輸入代辦事項名稱...";
+            ClientSize = new Size(428, 287);
+            Controls.Add(todoContentBox);
+            Controls.Add(exitBtn);
+            Name = "TodoDetailForm";
+            Text = "TodoDetailForm";
             TopMost = true;
             ResumeLayout(false);
             PerformLayout();
@@ -65,7 +66,7 @@
 
         #endregion
 
-        private TextBox todoInputBox;
-        private Button submitInputBtn;
+        private Button exitBtn;
+        private TextBox todoContentBox;
     }
 }
