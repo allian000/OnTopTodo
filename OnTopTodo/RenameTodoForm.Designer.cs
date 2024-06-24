@@ -58,6 +58,7 @@
             Controls.Add(renameTodoBox);
             Name = "RenameTodoForm";
             Text = "重新命名代辦事項...";
+            TopMost = true;
             ResumeLayout(false);
             PerformLayout();
         }

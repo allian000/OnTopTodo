@@ -18,16 +18,46 @@ namespace OnTopTodo
             todoItems = [];
         }
 
-        private void InitializeTodoDisplayList()
+        private void InitializeTodoDisplayList(String searchText)
         {
             todoDisplayList.Items.Clear();
-            foreach (var item in todoItems)
+            var sortedTodoItems = todoItems
+            .Select(item => new { Item = item, Score = CalculateMatchScore(item.getName(), searchText) })
+            .OrderByDescending(x => x.Score)
+            .ToList();
+
+            foreach (var entry in sortedTodoItems)
             {
-                if (item.getName() != "" || item.getName() != null)
+                if (!string.IsNullOrEmpty(entry.Item.getName()))
                 {
-                    todoDisplayList.Items.Add(item.getName());
+                    todoDisplayList.Items.Add(entry.Item.getName());
                 }
             }
+        }
+
+        private int CalculateMatchScore(string todoName, string searchText)
+        {
+            if (string.IsNullOrEmpty(todoName) || string.IsNullOrEmpty(searchText))
+                return 0;
+
+            int maxScore = 0;
+            int currentScore = 0;
+
+            for (int i = 0; i < todoName.Length; i++)
+            {
+                if (i + searchText.Length <= todoName.Length &&
+                    todoName.Substring(i, searchText.Length).Equals(searchText, StringComparison.OrdinalIgnoreCase))
+                {
+                    currentScore = searchText.Length;
+                    maxScore = Math.Max(maxScore, currentScore);
+                }
+                else
+                {
+                    currentScore = 0;
+                }
+            }
+
+            return maxScore;
         }
 
         private void addTodoBtn_Click(object sender, EventArgs e)
@@ -38,7 +68,7 @@ namespace OnTopTodo
             TodoItem todoItem = new TodoItem(todoName, "");
             todoItems.Add(todoItem);
             // ­«·s´è¬V¦Cªí
-            InitializeTodoDisplayList();
+            InitializeTodoDisplayList("");
         }
 
 
@@ -91,7 +121,7 @@ namespace OnTopTodo
                         todoName = selectedTodoItemName;
                     }
                     selectedTodoItem.setName(todoName);
-                    InitializeTodoDisplayList();
+                    InitializeTodoDisplayList("");
                 }
             }
         }
@@ -105,9 +135,20 @@ namespace OnTopTodo
                 if (selectedTodoItem != null)
                 {
                     todoItems.Remove(selectedTodoItem);
-                    InitializeTodoDisplayList();
+                    InitializeTodoDisplayList("");
                 }
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchTodoBox_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = searchTodoBox.Text;
+            InitializeTodoDisplayList(searchText);
         }
     }
 }

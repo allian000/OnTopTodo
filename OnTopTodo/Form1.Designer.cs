@@ -36,6 +36,7 @@
             openTodoDetailBtn = new Button();
             renameTodoBtn = new Button();
             delSelectedTodoBtn = new Button();
+            searchTodoBox = new TextBox();
             SuspendLayout();
             // 
             // todoDisplayList
@@ -101,11 +102,20 @@
             delSelectedTodoBtn.UseVisualStyleBackColor = true;
             delSelectedTodoBtn.Click += delSelectedTodoBtn_Click;
             // 
+            // searchTodoBox
+            // 
+            searchTodoBox.Location = new Point(12, 277);
+            searchTodoBox.Name = "searchTodoBox";
+            searchTodoBox.Size = new Size(368, 23);
+            searchTodoBox.TabIndex = 6;
+            searchTodoBox.TextChanged += searchTodoBox_TextChanged;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(392, 368);
+            ClientSize = new Size(392, 309);
+            Controls.Add(searchTodoBox);
             Controls.Add(delSelectedTodoBtn);
             Controls.Add(renameTodoBtn);
             Controls.Add(openTodoDetailBtn);
@@ -115,7 +125,9 @@
             Name = "Form1";
             Text = "On Top Todo";
             TopMost = true;
+            Load += Form1_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -127,5 +139,6 @@
         private Button openTodoDetailBtn;
         private Button renameTodoBtn;
         private Button delSelectedTodoBtn;
+        private TextBox searchTodoBox;
     }
 }

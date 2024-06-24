@@ -20,7 +20,7 @@ On Top Todo is a todo list that is always on top of your screen, based on the Wi
 - [x] Update existing todos
 - [x] Delete todos
 - [x] Check the todos
-- [ ] Search todos
+- [x] Search todos
 - [ ] Export to Excel file
 
 ## Installation
