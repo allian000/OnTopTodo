@@ -28,32 +28,65 @@
         /// </summary>
         private void InitializeComponent()
         {
-            test_label = new Label();
+            components = new System.ComponentModel.Container();
+            todoDisplayList = new CheckedListBox();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            addTodoBtn = new Button();
+            delCheckedTodoBtn = new Button();
             SuspendLayout();
             // 
-            // test_label
+            // todoDisplayList
             // 
-            test_label.AutoSize = true;
-            test_label.Location = new Point(227, 146);
-            test_label.Name = "test_label";
-            test_label.Size = new Size(67, 15);
-            test_label.TabIndex = 0;
-            test_label.Text = "test_label1";
+            todoDisplayList.FormattingEnabled = true;
+            todoDisplayList.Location = new Point(12, 12);
+            todoDisplayList.Name = "todoDisplayList";
+            todoDisplayList.Size = new Size(201, 346);
+            todoDisplayList.TabIndex = 0;
+            // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(61, 4);
+            // 
+            // addTodoBtn
+            // 
+            addTodoBtn.Location = new Point(219, 12);
+            addTodoBtn.Name = "addTodoBtn";
+            addTodoBtn.Size = new Size(166, 47);
+            addTodoBtn.TabIndex = 1;
+            addTodoBtn.Text = "新增事項";
+            addTodoBtn.UseVisualStyleBackColor = true;
+            addTodoBtn.Click += addTodoBtn_Click;
+            // 
+            // delCheckedTodoBtn
+            // 
+            delCheckedTodoBtn.Location = new Point(219, 65);
+            delCheckedTodoBtn.Name = "delCheckedTodoBtn";
+            delCheckedTodoBtn.Size = new Size(166, 47);
+            delCheckedTodoBtn.TabIndex = 2;
+            delCheckedTodoBtn.Text = "刪除已完成事項";
+            delCheckedTodoBtn.UseVisualStyleBackColor = true;
+            delCheckedTodoBtn.Click += delCheckedTodoBtn_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(test_label);
+            ClientSize = new Size(392, 450);
+            Controls.Add(delCheckedTodoBtn);
+            Controls.Add(addTodoBtn);
+            Controls.Add(todoDisplayList);
             Name = "Form1";
-            Text = "Form1";
+            Text = "On Top Todo";
+            TopMost = true;
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private Label test_label;
+        private CheckedListBox todoDisplayList;
+        private ContextMenuStrip contextMenuStrip1;
+        private Button addTodoBtn;
+        private Button delCheckedTodoBtn;
     }
 }
